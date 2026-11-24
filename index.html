@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio — BTS SIO SISR</title>
+<meta name="description" content="Portfolio d’un étudiant en BTS SIO option SISR : compétences, certifications, projets, veille et contact.">
+<meta name="theme-color" content="#0b0d14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d14; --panel:#121624; --line:#232940;
+  --silver:#cfd5e0; --silver-2:#8d96aa; --text:#e8ebf2;
+  --ice:#7aa2ff; --violet:#a78bfa; --mint:#6ee7c8;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Figtree",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 1.05rem/1.65 var(--body);min-height:100vh;
+  background-image:radial-gradient(60rem 30rem at 85% -10%,rgba(122,162,255,.14),transparent 60%),
+  radial-gradient(40rem 30rem at -10% 110%,rgba(167,139,250,.12),transparent 60%);background-attachment:fixed}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ice);outline-offset:3px;border-radius:6px}
+
+header{position:sticky;top:0;z-index:5;background:rgba(11,13,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:68rem;margin:auto;padding:.8rem 1.25rem;display:flex;align-items:center;gap:1.5rem}
+.logo{font:800 1.3rem var(--display);color:var(--silver);text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--ice)}
+nav{display:flex;gap:.25rem;overflow-x:auto;margin-left:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{background:none;border:0;color:var(--silver-2);font:500 .95rem var(--body);padding:.5rem .9rem;border-radius:999px;cursor:pointer;white-space:nowrap;transition:color .2s,background .2s}
+nav button:hover{color:var(--text)}
+nav button[aria-selected="true"]{color:var(--bg);background:linear-gradient(135deg,#f1f4fa,#aab2c3)}
+
+main{max-width:68rem;margin:auto;padding:3.5rem 1.25rem 5rem}
+section[hidden]{display:none}
+h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.025em}
+h2{font-size:clamp(2rem,5vw,2.8rem);font-weight:800;color:var(--silver);margin-bottom:.6rem}
+.lead{color:var(--silver-2);max-width:42rem;margin-bottom:2.5rem}
+
+/* Accueil */
+.hero{padding:3rem 0 2rem}
+.hero-content{display:grid;grid-template-columns:minmax(0,1fr) 13rem;align-items:center;gap:2.5rem}
+.profile{width:13rem;height:13rem;border-radius:24px;border:1px solid var(--line);background:var(--panel);position:relative;overflow:hidden;box-shadow:0 1.2rem 3rem rgba(0,0,0,.22)}
+.profile img{width:100%;height:100%;object-fit:cover;display:block}
+.profile-fallback{position:absolute;inset:0;display:grid;place-items:center;font:800 clamp(3rem,8vw,5rem)/1 var(--display);color:var(--silver);background:linear-gradient(135deg,rgba(122,162,255,.18),rgba(167,139,250,.12))}
+.profile-fallback[hidden]{display:none}
+.hero h1{font-size:clamp(3rem,10vw,6.5rem);font-weight:800;
+  background:linear-gradient(100deg,#8d96aa 0%,#f4f6fb 30%,#aeb6c7 50%,#f4f6fb 70%,#8d96aa 100%);
+  background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:sheen 6s ease-out 1 both}
+@keyframes sheen{from{background-position:100% 0}to{background-position:0 0}}
+.hero p{font-size:1.25rem;color:var(--silver-2);max-width:36rem;margin:1.2rem 0 2rem}
+.hero p b{color:var(--text);font-weight:600}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;padding:.75rem 1.4rem;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--line);color:var(--text);background:none;cursor:pointer;font-family:var(--body);font-size:1rem}
+.btn.main{background:linear-gradient(135deg,#f1f4fa,#aab2c3);color:var(--bg);border:0}
+.btn:hover{border-color:var(--silver-2)}
+@media(max-width:46rem){.hero-content{grid-template-columns:1fr}.profile{width:10rem;height:10rem;grid-row:1}}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:3.5rem}
+.facts div{background:var(--panel);padding:1.2rem 1.4rem}
+.facts dt{color:var(--silver-2);font-size:.9rem}
+.facts dd{font:600 1.15rem var(--display);margin-top:.15rem}
+.company{margin-top:3.5rem}
+.company-overview{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.company-details{display:grid;gap:.8rem}
+.company-details div{display:grid;grid-template-columns:minmax(8rem,.8fr) 1.2fr;gap:.8rem}
+.company-details dt{color:var(--silver-2);font-size:.92rem}
+.company-details dd{font-size:.98rem;overflow-wrap:anywhere}
+.company-subtitle{font-size:1.5rem;font-weight:600;color:var(--silver);margin:2.5rem 0 1rem}
+@media(max-width:46rem){.company-overview{grid-template-columns:1fr}.company-details div{grid-template-columns:1fr;gap:.1rem}}
+.impact{margin-top:3.5rem}
+.impact-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;margin-top:1.1rem}
+.impact-value{font:800 clamp(1.7rem,4vw,2.4rem)/1.1 var(--display);color:var(--ice)}
+.impact-label{color:var(--silver-2);font-size:.92rem}
+.impact-connection{margin-top:1.1rem}
+@media(max-width:46rem){.impact-stats{grid-template-columns:1fr}}
+
+/* Cartes */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(19rem,1fr));gap:1.1rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column;gap:.7rem}
+.card h3{font-size:1.25rem;font-weight:600;color:var(--silver)}
+.card p{color:var(--silver-2);font-size:.98rem}
+.card .meta{font-size:.88rem;color:var(--ice)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+.tags span{font-size:.82rem;padding:.2rem .7rem;border-radius:999px;border:1px solid var(--line);color:var(--silver)}
+.card a.more{color:var(--mint);font-weight:600;text-decoration:none;font-size:.95rem}
+.card a.more:hover{text-decoration:underline}
+.skill-bar{height:6px;border-radius:9px;background:var(--line);overflow:hidden}
+.skill-bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--ice),var(--violet))}
+.skill{display:flex;flex-direction:column;gap:.35rem}
+.skill div{display:flex;justify-content:space-between;font-size:.98rem}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.filters button{background:none;border:1px solid var(--line);color:var(--silver-2);border-radius:999px;padding:.4rem 1rem;font:500 .92rem var(--body);cursor:pointer}
+.filters button[aria-pressed="true"]{border-color:var(--silver);color:var(--text)}
+
+/* Parcours */
+.timeline{list-style:none;padding:0 0 0 1.6rem;border-left:1px solid var(--line);display:grid;gap:2rem;margin-left:.45rem}
+.timeline li{position:relative;min-width:0}
+.timeline li::before{content:"";position:absolute;left:-2.02rem;top:.42rem;width:.75rem;height:.75rem;border-radius:50%;background:var(--ice);box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--line)}
+.timeline-period{color:var(--ice);font-weight:600}
+.timeline h3{font-size:1.25rem;font-weight:600;color:var(--silver);margin:.3rem 0}
+.timeline-place{color:var(--silver-2);font-size:.95rem;margin-bottom:.45rem}
+.timeline-desc{color:var(--silver-2);font-size:.98rem;overflow-wrap:anywhere}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+@media(max-width:46rem){.contact{grid-template-columns:1fr}}
+form{display:flex;flex-direction:column;gap:1rem}
+label{display:flex;flex-direction:column;gap:.35rem;font-size:.95rem;color:var(--silver)}
+input,textarea{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;color:var(--text);font:inherit}
+input:focus,textarea:focus{outline:none;border-color:var(--ice)}
+textarea{min-height:9rem;resize:vertical}
+.links{display:flex;flex-direction:column;gap:.8rem;list-style:none;padding:0}
+.links a{display:flex;justify-content:space-between;padding:1rem 1.2rem;border:1px solid var(--line);border-radius:14px;background:var(--panel);text-decoration:none}
+.links a:hover{border-color:var(--silver-2)}
+.links small{color:var(--silver-2)}
+footer{text-align:center;color:var(--silver-2);font-size:.9rem;padding:2rem 1rem;border-top:1px solid var(--line)}
+@media(prefers-reduced-motion:reduce){.hero h1{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="#accueil" data-tab="accueil">Portfolio Trinité<span>.</span></a>
+    <nav role="tablist" aria-label="Sections du portfolio"></nav>
+  </div>
+</header>
+
+<main>
+  <!-- ACCUEIL -->
+  <section id="accueil" role="tabpanel">
+    <div class="hero">
+      <div class="hero-content">
+        <div>
+          <h1>Beyobeon Trinité Alin AMON</h1>
+          <p>Étudiant en <b>BTS SIO option SISR</b>. J’installe, je sécurise et j’administre des systèmes et des réseaux. </p>
+          <div class="btns">
+            <button class="btn main" data-go="projets">Voir mes projets</button>
+            <button class="btn" data-go="certifications">Voir mes certifications</button>
+            <button class="btn" data-go="contact">Me contacter</button>
+          </div>
+        </div>
+        <div class="profile" aria-label="Photo de profil">
+          <img src="assets/photo/profile.jpg" alt="Beyobeon Trinité Alin AMON" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+          <div class="profile-fallback" aria-hidden="true" hidden>TA</div>
+        </div>
+      </div>
+    </div>
+    <dl class="facts">
+      <div><dt>Formation</dt><dd>BTS SIO SISR</dd></div>
+      <div><dt>Établissement</dt><dd>IEF2I, Vincennes</dd></div>
+      <div><dt>Année</dt><dd>1re année (2025–2026)</dd></div>
+      <div><dt>Alternance</dt><dd>Green Remarket, 2026–2027</dd></div>
+    </dl>
+    <section class="company" aria-labelledby="company-title">
+      <h2 id="company-title">Mon entreprise d'alternance</h2>
+      <p class="lead" id="company-lead"></p>
+      <div class="company-overview">
+        <article class="card" id="company-presentation"></article>
+        <article class="card">
+          <h3>Informations clés</h3>
+          <dl class="company-details" id="company-details"></dl>
+        </article>
+      </div>
+      <h3 class="company-subtitle">Ce que fait l'entreprise</h3>
+      <div class="grid" id="company-activities"></div>
+      <h3 class="company-subtitle">Mes missions</h3>
+      <div class="grid" id="company-missions"></div>
+    </section>
+    <section class="impact" aria-labelledby="impact-title">
+      <h2 id="impact-title">L'impact de Green Remarket dans l'informatique</h2>
+      <p class="lead" id="impact-lead"></p>
+      <div class="grid" id="impact-points"></div>
+      <div class="impact-stats" id="impact-stats"></div>
+      <article class="card impact-connection" id="impact-connection"></article>
+    </section>
+  </section>
+
+  <!-- PARCOURS -->
+  <section id="parcours" role="tabpanel" hidden>
+    <h2>Parcours</h2>
+    <p class="lead">Mon parcours de formation et mes expériences.</p>
+    <ol class="timeline" id="timeline"></ol>
+  </section>
+
+  <!-- COMPETENCES -->
+  <section id="competences" role="tabpanel" hidden>
+    <h2>Compétences</h2>
+    <p class="lead">Les outils et les technologies que j’utilise en formation, en stage et sur mon homelab.</p>
+    <div class="grid" id="skills"></div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" role="tabpanel" hidden>
+    <h2>Certifications</h2>
+    <p class="lead">Mes certifications obtenues et celles que je prépare.</p>
+    <div class="grid" id="certs"></div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets" role="tabpanel" hidden>
+    <h2>Projets</h2>
+    <p class="lead">Mes réalisations professionnelles et personnelles, classées par domaine.</p>
+    <div class="filters" id="filters" aria-label="Filtrer les projets"></div>
+    <div class="grid" id="projects"></div>
+  </section>
+
+  <!-- VEILLE -->
+  <section id="veille" role="tabpanel" hidden>
+    <h2>Veille technologique</h2>
+    <p class="lead">Thème suivi : <strong>Les prémices du Wi-Fi 8 (IEEE 802.11bn)</strong></p>
+    <div class="grid" id="watch"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" role="tabpanel" hidden>
+    <h2>Me contacter</h2>
+    <p class="lead">Une offre d’alternance, une question sur un projet ? Écris-moi.</p>
+    <div class="contact">
+      <form id="form">
+        <label>Nom<input name="nom" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        <label>Message<textarea name="msg" required></textarea></label>
+        <button class="btn main" type="submit">Envoyer le message</button>
+      </form>
+      <ul class="links">
+        <li><a href="mailto:ton.email@exemple.fr">Email <small>ton.email@exemple.fr</small></a></li>
+        <li><a href="https://www.linkedin.com/in/ton-profil" target="_blank" rel="noopener">LinkedIn <small>Mon profil</small></a></li>
+        <li><a href="https://github.com/ton-pseudo" target="_blank" rel="noopener">GitHub <small>Mon code et mes scripts</small></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> Amon Trinite — Portfolio BTS SIO SISR</footer>
+
+<script>
+/* ====== TON CONTENU : modifie uniquement cette zone ====== */
+const EMAIL = "ton.email@exemple.fr";
+
+const ENTREPRISE = {
+  nom:"Green Remarket",
+  accroche:"Donner une seconde vie au matériel informatique des entreprises.",
+  desc:"Green Remarket accompagne les entreprises dans la valorisation durable de leur matériel informatique : reprise du parc, diagnostic complet, effacement certifié des données, reconditionnement, revente et recyclage responsable. Elle propose aussi le démantèlement de salles serveurs et de data centers.",
+  site:"https://www.greenremarket.fr",
+  infos:[
+    ["Période d'alternance","2026–2027"],
+    ["Secteur","Reprise, reconditionnement et recyclage de matériel IT"],
+    ["Lieu","Chatou (78)"],
+    ["Statut","SAS, créée en 2019"],
+    ["Effectif","Moins de 10 personnes"],
+    ["Site","greenremarket.fr"]
+  ],
+  activites:[
+    {titre:"Reprise et audit du parc", desc:"Rachat de parcs informatiques et de téléphonie mobile, avec inventaire et diagnostic complet des équipements."},
+    {titre:"Effacement certifié des données", desc:"Effacement sécurisé des données personnelles, avec certificats, jusqu'à la destruction des supports si nécessaire."},
+    {titre:"Reconditionnement et revente", desc:"Remise en état des équipements pour leur donner une seconde vie, puis revente."},
+    {titre:"Recyclage et démantèlement", desc:"Recyclage responsable du matériel en fin de vie et démantèlement de salles serveurs et de data centers."}
+  ],
+  missions:[
+    {titre:"Titre de la mission 1", desc:"Décris en 1 ou 2 phrases ce que tu fais."},
+    {titre:"Titre de la mission 2", desc:"Décris en 1 ou 2 phrases ce que tu fais."},
+    {titre:"Titre de la mission 3", desc:"Décris en 1 ou 2 phrases ce que tu fais."}
+  ]
+};
+
+const IMPACT = {
+  lead:"Green Remarket agit sur la fin de vie du matériel informatique : au lieu d'être jeté, il est testé, sécurisé, réutilisé ou recyclé.",
+  points:[
+    {titre:"Allonger la durée de vie du matériel", desc:"Les équipements repris sont diagnostiqués et reconditionnés pour être revendus, ce qui évite d'en fabriquer de nouveaux."},
+    {titre:"Réduire l'empreinte du numérique", desc:"Réutiliser et recycler le matériel IT limite les déchets électroniques et l'impact environnemental du secteur."},
+    {titre:"Protéger les données des entreprises", desc:"L'effacement certifié des données et les certificats de destruction sécurisent la sortie du matériel du parc d'une entreprise."},
+    {titre:"Accompagner les changements d'infrastructure", desc:"Le démantèlement de salles serveurs et de data centers permet de renouveler une infrastructure sans perdre la traçabilité du matériel."}
+  ],
+  chiffres:[
+    {valeur:"À compléter", libelle:"Ex. : nombre d'équipements traités par an"},
+    {valeur:"À compléter", libelle:"Ex. : nombre d'équipements traités par an"},
+    {valeur:"À compléter", libelle:"Ex. : nombre d'équipements traités par an"}
+  ],
+  lienMetier:{
+    titre:"Le lien avec mon BTS SISR",
+    desc:"À compléter : explique en 2 phrases comment ces enjeux (sécurité des données, gestion de parc, infrastructures) rejoignent ma formation."
+  }
+};
+
+const TABS = [
+  ["accueil","Accueil"],["parcours","Parcours"],["competences","Compétences"],["certifications","Certifications"],
+  ["projets","Projets"],["veille","Veille"],["contact","Me contacter"]
+];
+
+const PARCOURS = [
+  {periode:"2026 – 2027", titre:"BTS SIO option SISR", lieu:"IEF2I, Vincennes", desc:"Systèmes, réseaux et cybersécurité. Objectif : licence professionnelle en systèmes, réseaux, cybersécurité ou administration des infrastructures."},
+  {periode:"Stage d’un mois", titre:"GIP FCIP", lieu:"", desc:"Travaux liés à l’administration et à la gestion d’infrastructures informatiques : mise en pratique de Linux et de Docker, découverte de la gestion d’environnements systèmes."},
+  {periode:"2026-2027", titre:"BTS SIO", lieu:"IEF2I, Vincennes", desc:"Formation au BTS SIO ."},
+  {periode:"2025", titre:"Baccalauréat", lieu:"Collège adventiste abidjan, Côte d’Ivoire", desc:"Obtenu au Collège adventiste abidjan, en Côte d’Ivoire."}
+];
+
+const SKILLS = [
+  {titre:"Systèmes", items:[["Windows Server (AD, GPO, DNS, DHCP)"],["Linux (Debian, Ubuntu Server)"],["Virtualisation (Proxmox, VMware)"]]},
+  {titre:"Réseaux", items:[["Cisco (VLAN, routage,)"],["pfSense",],]},
+  {titre:"Sécurité & supervision", items:[["Supervision (Zabbix,)"],["Sauvegarde (Veeam)"],]},
+  {titre:"Outils & scripts", items:[["GLPI, Active Directory"],]}
+];
+
+const CERTS = [
+  {nom:"Introduction to Cybersecurity", org:"Cisco Networking Academy", date:"12 janv. 2026", statut:"Obtenue", lien:"assets/certifications/Certification-Cisco-Introduction-to-Cybersecurity.pdf"},
+  {nom:"SecNumacadémie", org:"ANSSI", date:"12 janv. 2026", statut:"Obtenue", lien:"assets/certifications/Attestation-SecNumacademie-ANSSI.pdf"}
+];
+
+const PROJECTS = [
+  {titre:"Création de domaine Active Directory et DNS", cat:"Systèmes", ctx:"Projet BTS SIO SISR", desc:"Installation d’un contrôleur de domaine Windows Server 2019 avec AD DS, promotion en forêt, création d’une zone DNS inverse et ajout d’un poste client Windows 10 au domaine.", tags:["Windows Server 2019","Active Directory","AD DS","DNS","PowerShell"], lien:"assets/projets/Création de domaine dans l’AD sous windows server 2019(AD DS + DNS).docx"},
+  {titre:"Serveur DHCP et déploiement WDS", cat:"Systèmes", ctx:"Projet BTS SIO SISR", desc:"Configuration d’un serveur DHCP sous Windows Server 2019 pour distribuer automatiquement les adresses IP, puis installation et paramétrage de WDS pour le déploiement centralisé d’images Windows.", tags:["Windows Server 2019","DHCP","WDS","Imagerie"], lien:"assets/projets/Installer et configurer un serveur DHCP + WDS sous windows server 2019.docx"},
+  {titre:"Routage inter-VLAN", cat:"Réseaux", ctx:"Projet BTS SIO SISR", desc:"Séparation d’un réseau en VLAN 10 et VLAN 20 sur un commutateur, configuration des passerelles et des interfaces du routeur, puis vérification de la communication entre les équipements.", tags:["Cisco","VLAN","Inter-VLAN","Routage","Packet Tracer"], lien:"assets/projets/Routage interVLAN.docx"}
+];
+
+const WATCH = [];
+/* ====== FIN DE LA ZONE À MODIFIER ====== */
+
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const link = (u,t)=> u && u!=="#" ? `<a class="more" href="${esc(u)}" target="_blank" rel="noopener">${t}</a>` : "";
+
+// Entreprise d'alternance
+$("#company-lead").innerHTML = esc(ENTREPRISE.accroche);
+$("#company-presentation").innerHTML = `<h3>${esc(ENTREPRISE.nom)}</h3><p>${esc(ENTREPRISE.desc)}</p><a class="more" href="${esc(ENTREPRISE.site)}" target="_blank" rel="noopener">Visiter le site</a>`;
+$("#company-details").innerHTML = ENTREPRISE.infos.map(([label,value])=>`<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`).join("");
+$("#company-activities").innerHTML = ENTREPRISE.activites.map(a=>`<article class="card"><h3>${esc(a.titre)}</h3><p>${esc(a.desc)}</p></article>`).join("");
+$("#company-missions").innerHTML = ENTREPRISE.missions.map(m=>`<article class="card"><h3>${esc(m.titre)}</h3><p>${esc(m.desc)}</p></article>`).join("");
+
+// Impact de l'entreprise
+$("#impact-lead").innerHTML = esc(IMPACT.lead);
+$("#impact-points").innerHTML = IMPACT.points.map(p=>`<article class="card"><h3>${esc(p.titre)}</h3><p>${esc(p.desc)}</p></article>`).join("");
+$("#impact-stats").innerHTML = IMPACT.chiffres.map(c=>`<article class="card"><span class="impact-value">${esc(c.valeur)}</span><span class="impact-label">${esc(c.libelle)}</span></article>`).join("");
+$("#impact-connection").innerHTML = `<h3>${esc(IMPACT.lienMetier.titre)}</h3><p>${esc(IMPACT.lienMetier.desc)}</p>`;
+
+// Parcours
+$("#timeline").innerHTML = PARCOURS.map(p=>`<li><span class="timeline-period">${esc(p.periode)}</span><h3>${esc(p.titre)}</h3>${p.lieu?`<p class="timeline-place">${esc(p.lieu)}</p>`:""}<p class="timeline-desc">${esc(p.desc)}</p></li>`).join("");
+
+// Onglets
+const nav = $("nav");
+nav.innerHTML = TABS.map(([id,l])=>`<button role="tab" data-tab="${id}" aria-selected="false">${l}</button>`).join("");
+function show(id){
+  if(!TABS.some(t=>t[0]===id)) id="accueil";
+  document.querySelectorAll("main section").forEach(s=>s.hidden = s.id!==id);
+  nav.querySelectorAll("button").forEach(b=>b.setAttribute("aria-selected", b.dataset.tab===id));
+  history.replaceState(null,"","#"+id);
+  scrollTo({top:0});
+}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-tab],[data-go]"); if(!t) return;
+  e.preventDefault(); show(t.dataset.tab||t.dataset.go);
+});
+addEventListener("hashchange",()=>show(location.hash.slice(1)));
+
+// Compétences
+$("#skills").innerHTML = SKILLS.map(g=>`<article class="card"><h3>${g.titre}</h3>${
+  g.items.map(([n,v])=>`<div class="skill"><div><span>${n}</span></div><div class="skill-bar" role="img" aria-label="Niveau ${v} sur 100"><i style="width:${v}%"></i></div></div>`).join("")
+}</article>`).join("");
+
+// Certifications
+$("#certs").innerHTML = CERTS.map(c=>`<article class="card"><span class="meta">${esc(c.statut)} · ${esc(c.date)}</span><h3>${esc(c.nom)}</h3><p>${esc(c.org)}</p>${link(c.lien,"Voir le justificatif")}</article>`).join("");
+
+// Projets + filtres
+const cats = ["Tous",...new Set(PROJECTS.map(p=>p.cat))];
+let cur = "Tous";
+function drawProjects(){
+  $("#filters").innerHTML = cats.map(c=>`<button aria-pressed="${c===cur}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
+  $("#projects").innerHTML = PROJECTS.filter(p=>cur==="Tous"||p.cat===cur).map(p=>
+   `<article class="card"><span class="meta">${esc(p.ctx)}</span><h3>${esc(p.titre)}</h3><p>${esc(p.desc)}</p><div class="tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>${link(p.lien,"Lire la documentation")}</article>`).join("");
+}
+$("#filters").addEventListener("click",e=>{const b=e.target.closest("[data-cat]"); if(b){cur=b.dataset.cat; drawProjects();}});
+drawProjects();
+
+// Veille
+$("#watch").hidden = WATCH.length === 0;
+$("#watch").innerHTML = WATCH.map(w=>`<article class="card"><span class="meta">${esc(w.source)} · ${esc(w.date)}</span><h3>${esc(w.titre)}</h3><p>${esc(w.resume)}</p>${link(w.lien,"Lire la source")}</article>`).join("");
+
+// Contact : ouvre le client mail (site statique, pas de serveur)
+$("#form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const f=new FormData(e.target);
+  const body=`${f.get("msg")}\n\n— ${f.get("nom")} (${f.get("email")})`;
+  location.href=`mailto:${EMAIL}?subject=${encodeURIComponent("Contact depuis ton portfolio")}&body=${encodeURIComponent(body)}`;
+});
+
+$("#year").textContent = new Date().getFullYear();
+show(location.hash.slice(1));
+</script>
+</body>
+</html>
